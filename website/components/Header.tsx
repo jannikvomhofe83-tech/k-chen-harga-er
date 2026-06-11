@@ -34,11 +34,11 @@ export default function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
         scrolled || open
-          ? "bg-ink/90 backdrop-blur-md border-b hairline-dark"
+          ? "bg-brand-red/95 backdrop-blur-md border-b border-white/10"
           : "bg-transparent border-b border-transparent"
       }`}
     >
-      <div className="mx-auto flex h-16 md:h-20 max-w-7xl items-center justify-between px-5 md:px-8">
+      <div className="flex h-16 md:h-20 w-full items-center justify-between pl-3 pr-5 md:pl-5 md:pr-8">
         <Link href="/" aria-label="Küchen Hargaßer — Startseite" className="group flex items-center gap-3">
           <Image
             src="/logo.png"
@@ -52,7 +52,7 @@ export default function Header() {
             <span className="font-serif text-base md:text-lg tracking-wide">
               Küchen Hargaßer
             </span>
-            <span className="label mt-1 text-[0.55rem] text-stone group-hover:text-brass transition-colors">
+            <span className="label mt-1 text-[0.55rem] text-paper/70 group-hover:text-paper transition-colors">
               Taufkirchen (Vils) · München
             </span>
           </span>
@@ -63,8 +63,8 @@ export default function Header() {
             <Link
               key={item.href}
               href={item.href}
-              className={`text-sm tracking-wide transition-colors hover:text-brass ${
-                pathname === item.href ? "text-brass" : "text-paper/80"
+              className={`text-sm tracking-wide transition-colors hover:text-paper ${
+                pathname === item.href ? "text-paper" : "text-paper/70"
               }`}
             >
               {item.label}
@@ -72,7 +72,7 @@ export default function Header() {
           ))}
           <Link
             href="/kontakt"
-            className="ml-2 border border-brass/70 px-5 py-2.5 text-xs label text-brass hover:bg-brass hover:text-ink transition-colors duration-300"
+            className="ml-2 border border-brand-red px-5 py-2.5 text-xs label text-paper bg-brand-red/20 hover:bg-brand-red hover:text-paper transition-colors duration-300"
           >
             Beratungstermin
           </Link>

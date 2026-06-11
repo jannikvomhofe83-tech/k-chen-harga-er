@@ -84,7 +84,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          className="label text-brass-soft hero-shadow-soft"
+          className="label text-paper hero-label-shadow"
         >
           Küchenstudio · Taufkirchen (Vils) · {site.region}
         </motion.p>
@@ -117,7 +117,7 @@ export default function Hero() {
         >
           <MagneticLink
             href="/kontakt"
-            className="inline-block border border-paper/60 bg-paper/0 px-9 py-4 text-sm label text-paper transition-colors duration-300 hover:border-brass hover:bg-brass hover:text-ink"
+            className="inline-block border-2 border-brand-red bg-brand-red/20 px-9 py-4 text-sm label text-paper hero-label-shadow backdrop-blur-sm transition-colors duration-300 hover:bg-brand-red hover:text-paper"
           >
             Beratungstermin vereinbaren
           </MagneticLink>

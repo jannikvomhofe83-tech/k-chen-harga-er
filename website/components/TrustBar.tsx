@@ -13,7 +13,8 @@ const items = [
 
 export default function TrustBar() {
   return (
-    <section className="border-y hairline-dark bg-ink-soft">
+    <section className="relative border-b border-white/10 bg-brand-red">
+      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink to-transparent pointer-events-none" />
       <div className="mx-auto grid max-w-7xl grid-cols-2 md:grid-cols-5">
         {items.map((item, i) => (
           <motion.div
@@ -26,10 +27,10 @@ export default function TrustBar() {
               i === 4 ? "col-span-2 md:col-span-1" : ""
             }`}
           >
-            <span className="font-serif text-xl text-brass md:text-2xl">
+            <span className="font-serif text-xl text-paper md:text-2xl">
               {item.value}
             </span>
-            <span className="text-xs text-paper/55">{item.label}</span>
+            <span className="text-xs text-paper/75">{item.label}</span>
           </motion.div>
         ))}
       </div>

@@ -1,0 +1,30 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+website/.next/
+website/out/
+website/build/
+
+# Environment
+.env
+.env*.local
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Misc
+*.tsbuildinfo
+next-env.d.ts
+
+# Einmaliges Upload-Skript mit AWS-Pre-Signed-URLs (Secrets)
+scripts/upload.sh

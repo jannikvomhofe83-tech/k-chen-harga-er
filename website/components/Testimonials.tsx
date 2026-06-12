@@ -62,7 +62,7 @@ export default function Testimonials() {
               </div>
 
               <blockquote className="font-serif text-xl leading-relaxed text-ink/85 md:text-2xl">
-                „{testimonials[active].text}"
+                „{testimonials[active].text}&ldquo;
               </blockquote>
 
               <figcaption className="mt-8 text-sm font-semibold text-ink">

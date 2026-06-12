@@ -61,7 +61,45 @@ const stepVariants = {
   exit: { opacity: 0, x: -48 },
 };
 
-export default function PlanningAssistant() {
+export default function PlanningAssistant({ light = false }: { light?: boolean }) {
+  const t = light
+    ? {
+        box: "border rule-carbon bg-linen-50 shadow-sm",
+        track: "bg-carbon-900/10",
+        bar: "bg-brand-700",
+        step: "text-carbon-500",
+        doneTitle: "text-brand-700",
+        doneText: "text-carbon-600",
+        donePhone: "text-carbon-900 hover:text-brand-700",
+        choice: "border rule-carbon hover:border-brand-700 hover:bg-linen-100",
+        choiceVal: "text-carbon-900 group-hover:text-brand-700",
+        choiceHint: "text-carbon-500",
+        back: "text-carbon-500 hover:text-brand-700",
+        fieldLabel: "text-carbon-500",
+        input:
+          "border rule-carbon bg-white text-carbon-900 placeholder:text-carbon-400 focus:border-brand-700",
+        submit: "bg-brand-700 text-linen-50 enabled:hover:bg-brand-600",
+        foot: "text-carbon-500",
+      }
+    : {
+        box: "border hairline-dark bg-ink-soft",
+        track: "bg-paper/15",
+        bar: "bg-brass",
+        step: "text-stone",
+        doneTitle: "text-brass",
+        doneText: "text-paper/70",
+        donePhone: "text-paper hover:text-brass",
+        choice: "border hairline-dark hover:border-brass hover:bg-ink",
+        choiceVal: "text-paper group-hover:text-brass",
+        choiceHint: "text-paper/45",
+        back: "text-stone hover:text-brass",
+        fieldLabel: "text-stone",
+        input:
+          "border hairline-dark bg-ink text-paper focus:border-brass",
+        submit: "bg-brass text-ink enabled:hover:bg-brass-soft",
+        foot: "text-paper/40",
+      };
+
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Record<string, string>>({});
   const [contact, setContact] = useState({
@@ -90,7 +128,7 @@ export default function PlanningAssistant() {
       "",
       contact.nachricht,
     ].join("\n");
-    return `mailto:info@kuechen-hargasser.de?subject=${encodeURIComponent(
+    return `mailto:${site.email}?subject=${encodeURIComponent(
       "Planungsanfrage über die Website"
     )}&body=${encodeURIComponent(lines)}`;
   }, [answers, contact]);
@@ -100,19 +138,19 @@ export default function PlanningAssistant() {
     (contact.tel.trim().length > 4 || contact.email.includes("@"));
 
   return (
-    <div className="border hairline-dark bg-ink-soft p-6 md:p-10">
+    <div className={`p-6 md:p-10 ${t.box}`}>
       {/* Fortschritt */}
       <div className="mb-10 flex items-center gap-4">
-        <div className="h-px flex-1 bg-paper/15">
+        <div className={`h-px flex-1 ${t.track}`}>
           <motion.div
-            className="h-px bg-brass"
+            className={`h-px ${t.bar}`}
             animate={{
               width: `${(Math.min(step, totalSteps) / totalSteps) * 100}%`,
             }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
           />
         </div>
-        <span className="label text-stone">
+        <span className={`label ${t.step}`}>
           {done ? "Fertig" : `Schritt ${Math.min(step + 1, totalSteps)} / ${totalSteps}`}
         </span>
       </div>
@@ -128,15 +166,15 @@ export default function PlanningAssistant() {
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="py-6 text-center"
           >
-            <p className="font-serif text-3xl text-brass">Vielen Dank!</p>
-            <p className="mx-auto mt-5 max-w-md text-sm leading-relaxed text-paper/70">
+            <p className={`font-serif text-3xl ${t.doneTitle}`}>Vielen Dank!</p>
+            <p className={`mx-auto mt-5 max-w-md text-sm leading-relaxed ${t.doneText}`}>
               Ihre Anfrage ist vorbereitet. Es öffnet sich Ihr E-Mail-Programm —
               einfach absenden, wir melden uns innerhalb von zwei Werktagen mit
               einem Terminvorschlag. Noch schneller geht es telefonisch:
             </p>
             <a
               href={site.phoneHref}
-              className="mt-6 inline-block font-serif text-2xl text-paper hover:text-brass transition-colors"
+              className={`mt-6 inline-block font-serif text-2xl transition-colors ${t.donePhone}`}
             >
               Tel. {site.phone}
             </a>
@@ -158,13 +196,13 @@ export default function PlanningAssistant() {
                 <button
                   key={c.value}
                   onClick={() => select(choiceSteps[step].key, c.value)}
-                  className="group border hairline-dark px-6 py-5 text-left transition-colors duration-300 hover:border-brass hover:bg-ink"
+                  className={`group px-6 py-5 text-left transition-colors duration-300 ${t.choice}`}
                 >
-                  <span className="block text-sm font-semibold text-paper group-hover:text-brass transition-colors">
+                  <span className={`block text-sm font-semibold transition-colors ${t.choiceVal}`}>
                     {c.value}
                   </span>
                   {c.hint && (
-                    <span className="mt-1 block text-xs text-paper/45">
+                    <span className={`mt-1 block text-xs ${t.choiceHint}`}>
                       {c.hint}
                     </span>
                   )}
@@ -174,7 +212,7 @@ export default function PlanningAssistant() {
             {step > 0 && (
               <button
                 onClick={() => setStep((s) => s - 1)}
-                className="label mt-8 text-stone hover:text-brass transition-colors"
+                className={`label mt-8 transition-colors ${t.back}`}
               >
                 ← Zurück
               </button>
@@ -200,44 +238,44 @@ export default function PlanningAssistant() {
             </h3>
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <label className="block">
-                <span className="label text-stone">Name *</span>
+                <span className={`label ${t.fieldLabel}`}>Name *</span>
                 <input
                   required
                   value={contact.name}
                   onChange={(e) => setContact({ ...contact, name: e.target.value })}
-                  className="mt-2 w-full border hairline-dark bg-ink px-4 py-3 text-sm text-paper outline-none transition-colors focus:border-brass"
+                  className={`mt-2 w-full px-4 py-3 text-sm outline-none transition-colors ${t.input}`}
                   placeholder="Vor- und Nachname"
                 />
               </label>
               <label className="block">
-                <span className="label text-stone">Telefon</span>
+                <span className={`label ${t.fieldLabel}`}>Telefon</span>
                 <input
                   type="tel"
                   value={contact.tel}
                   onChange={(e) => setContact({ ...contact, tel: e.target.value })}
-                  className="mt-2 w-full border hairline-dark bg-ink px-4 py-3 text-sm text-paper outline-none transition-colors focus:border-brass"
+                  className={`mt-2 w-full px-4 py-3 text-sm outline-none transition-colors ${t.input}`}
                   placeholder="Für den schnellen Rückruf"
                 />
               </label>
               <label className="block sm:col-span-2">
-                <span className="label text-stone">E-Mail</span>
+                <span className={`label ${t.fieldLabel}`}>E-Mail</span>
                 <input
                   type="email"
                   value={contact.email}
                   onChange={(e) => setContact({ ...contact, email: e.target.value })}
-                  className="mt-2 w-full border hairline-dark bg-ink px-4 py-3 text-sm text-paper outline-none transition-colors focus:border-brass"
+                  className={`mt-2 w-full px-4 py-3 text-sm outline-none transition-colors ${t.input}`}
                   placeholder="name@beispiel.de"
                 />
               </label>
               <label className="block sm:col-span-2">
-                <span className="label text-stone">Ihre Nachricht</span>
+                <span className={`label ${t.fieldLabel}`}>Ihre Nachricht</span>
                 <textarea
                   rows={4}
                   value={contact.nachricht}
                   onChange={(e) =>
                     setContact({ ...contact, nachricht: e.target.value })
                   }
-                  className="mt-2 w-full resize-none border hairline-dark bg-ink px-4 py-3 text-sm text-paper outline-none transition-colors focus:border-brass"
+                  className={`mt-2 w-full resize-none px-4 py-3 text-sm outline-none transition-colors ${t.input}`}
                   placeholder="Was sollten wir vorab wissen? (Raumgröße, Altbau/Neubau, Wünsche …)"
                 />
               </label>
@@ -246,19 +284,19 @@ export default function PlanningAssistant() {
               <button
                 type="button"
                 onClick={() => setStep((s) => s - 1)}
-                className="label text-stone hover:text-brass transition-colors text-left"
+                className={`label transition-colors text-left ${t.back}`}
               >
                 ← Zurück
               </button>
               <button
                 type="submit"
                 disabled={!canSubmit}
-                className="bg-brass px-8 py-4 text-sm label text-ink transition-all duration-300 enabled:hover:bg-brass-soft disabled:cursor-not-allowed disabled:opacity-40"
+                className={`px-8 py-4 text-sm label transition-all duration-300 disabled:cursor-not-allowed disabled:opacity-40 ${t.submit}`}
               >
                 Anfrage absenden
               </button>
             </div>
-            <p className="mt-4 text-xs text-paper/40">
+            <p className={`mt-4 text-xs ${t.foot}`}>
               * Pflichtfeld — bitte Telefon oder E-Mail angeben. Ihre Daten
               verwenden wir ausschließlich zur Bearbeitung Ihrer Anfrage.
             </p>

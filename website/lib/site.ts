@@ -3,6 +3,7 @@ export const site = {
   claim: "Küchen, die bleiben.",
   phone: "08084 2300",
   phoneHref: "tel:+4980842300",
+  email: "info@kuechen-hargasser.de",
   address: "Brunnholzring 9, 84416 Taufkirchen (Vils)",
   region: "München & Umgebung",
   rating: "5,0",

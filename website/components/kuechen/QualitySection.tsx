@@ -92,7 +92,7 @@ export default function QualitySection() {
               </div>
               <figcaption className="mt-4 flex items-baseline justify-between border-t rule-carbon pt-3 text-xs">
                 <span>
-                  <span className="folio text-brand-700">Abb. 13</span>
+                  <span className="folio text-brand-700">Abb. 14</span>
                   <span className="text-carbon-600"> — Wildeiche &amp; Zement</span>
                 </span>
                 <span className="text-carbon-400">Wildeiche, Zementoptik</span>

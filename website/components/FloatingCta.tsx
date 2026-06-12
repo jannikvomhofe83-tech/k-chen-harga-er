@@ -19,7 +19,7 @@ export default function FloatingCta() {
   if (pathname === "/kontakt") return null;
 
   /* Editorial-Theme (helle Seiten): Markenrot statt Messing. */
-  const editorial = pathname === "/kuechen";
+  const editorial = pathname === "/kuechen" || pathname === "/ueber-uns";
 
   return (
     <AnimatePresence>

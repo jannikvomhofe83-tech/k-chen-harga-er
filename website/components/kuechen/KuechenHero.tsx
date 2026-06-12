@@ -123,9 +123,6 @@ export default function KuechenHero() {
               · Küchenstudio Taufkirchen (Vils)
             </span>
           </p>
-          <p className="folio hidden text-paper/85 md:block">
-            {site.region}
-          </p>
         </div>
 
         {/* Typografie unten links */}
@@ -182,6 +179,15 @@ export default function KuechenHero() {
           </div>
         </div>
       </div>
+
+      {/* Region: am rechten Bildrand über dem dunklen Holz platziert,
+          weil sie über der hellen Fensterfläche kaum lesbar wäre. */}
+      <p
+        data-hero-folio
+        className="folio absolute right-5 top-28 z-10 hidden text-paper md:right-8 md:top-[8.6rem] md:block"
+      >
+        {site.region}
+      </p>
 
       {/* Bildunterschrift */}
       <p

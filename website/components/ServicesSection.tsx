@@ -99,7 +99,13 @@ function ServiceItem({ item, index }: { item: typeof items[0]; index: number }) 
       className="flex items-start gap-6 py-8 md:gap-8 md:py-10"
     >
       <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full md:h-24 md:w-24">
-        <Image src={item.img} alt={item.title} fill className="object-cover" />
+        <Image
+          src={item.img}
+          alt={item.title}
+          fill
+          sizes="(min-width: 768px) 96px, 80px"
+          className="object-cover"
+        />
       </div>
       <div className="flex-1 pt-1">
         <h3 className="font-serif text-xl md:text-2xl">{item.title}</h3>

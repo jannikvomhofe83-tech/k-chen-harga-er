@@ -27,6 +27,22 @@ const STYLE =
 
 const IMAGES = [
   {
+    name: "kontakt-hero",
+    size: "3:2",
+    prompt:
+      "WIDE HORIZONTAL LANDSCAPE format, photorealistic editorial photograph of a warm welcoming " +
+      "reception desk inside a premium German kitchen studio showroom. In the foreground a polished " +
+      "oak wooden desk seen across its surface: on the left a black office desk phone, a clear glass of " +
+      "water, a dark leather desk pad with a sheet of paper and an elegant fountain pen resting on it, a " +
+      "closed leather notebook, a small cup holding pens, and a small potted green plant on the right. " +
+      "Behind the desk a clean reception counter with matte dark grey cabinets and warm oak wood accents, " +
+      "decorative ceramic vases and a leafy plant. On the back wall a light stone surface showing a small " +
+      "elegant minimalist logo mark and the clean uppercase text 'KÜCHEN HARGASSER'. A window with " +
+      "venetian blinds on the left lets in soft warm daylight. Cozy professional atmosphere, shallow depth " +
+      "of field, generous calm space on the upper left for typography, " +
+      STYLE,
+  },
+  {
     name: "hero-kueche",
     size: "3:2",
     prompt:
@@ -117,6 +133,72 @@ const IMAGES = [
     prompt:
       "Installer adjusting the hinge of a sage green kitchen cabinet door with a screwdriver, " +
       "freshly installed bright kitchen, portrait composition, " +
+      STYLE,
+  },
+  {
+    name: "ueberuns-studio",
+    size: "2:3",
+    prompt:
+      "Inviting small German kitchen studio showroom interior, consultation table in oak with fanned " +
+      "material samples and two ceramic cups, a sage green display kitchen softly lit in the background, " +
+      "calm welcoming atmosphere, portrait composition, " +
+      STYLE,
+  },
+  {
+    name: "karriere-werkstatt",
+    size: "2:3",
+    prompt:
+      "Young carpenter apprentice hands measuring an oak board with a folding wooden ruler and pencil " +
+      "at a joinery workbench, chisels and clamps neatly arranged, warm slanting workshop light, " +
+      "portrait composition, " +
+      STYLE,
+  },
+  {
+    name: "werte-detail",
+    size: "1:1",
+    prompt:
+      "Macro close-up of a perfect dovetail joint in oak wood on a custom kitchen drawer, " +
+      "fine wood grain texture, craftsman fingertips resting on the joint, warm directional light, " +
+      "square composition, " +
+      STYLE,
+  },
+  {
+    name: "karriere-team",
+    size: "2:3",
+    prompt:
+      "Modern small kitchen studio team of four colleagues standing together around a workbench in a " +
+      "bright contemporary joinery workshop, wearing modern dark green work aprons over casual clothes, " +
+      "reviewing a kitchen floor plan together, photographed from behind and in soft side profile so faces " +
+      "stay mostly hidden, collaborative warm energetic atmosphere, portrait composition, " +
+      "editorial interior photography for a premium German kitchen studio magazine, " +
+      "warm muted palette of cream linen, sage green, oak wood and dark walnut, " +
+      "soft natural window light, photorealistic, no text, no watermark",
+  },
+  {
+    name: "werte-ehrlichkeit",
+    size: "2:3",
+    prompt:
+      "Kitchen offer documents and a wooden folding rule on an oak table, a consultant hand pointing " +
+      "at a clear line with a pencil, transparent honest consultation scene, soft top light, " +
+      "portrait composition, " +
+      STYLE,
+  },
+  {
+    name: "werte-naehe",
+    size: "2:3",
+    prompt:
+      "Two people sitting close together at an oak table in a kitchen showroom reviewing fanned material " +
+      "samples, photographed over the shoulder from behind, warm personal trusted consultation, " +
+      "portrait composition, " +
+      STYLE,
+  },
+  {
+    name: "werte-verlaesslichkeit",
+    size: "2:3",
+    prompt:
+      "Spirit level lying on a freshly installed oak kitchen worktop with perfectly aligned sage green " +
+      "cabinet fronts below, calm precise detail scene, warm directional light, " +
+      "portrait composition, " +
       STYLE,
   },
 ];

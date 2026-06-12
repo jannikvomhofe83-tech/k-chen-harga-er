@@ -9,7 +9,7 @@ import { site } from "@/lib/site";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export default function KuechenCta() {
+export default function KuechenCta({ nr = "05" }: { nr?: string }) {
   const sectionRef = useRef<HTMLElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
 
@@ -68,7 +68,7 @@ export default function KuechenCta() {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-end lg:gap-10">
           <div className="lg:col-span-8">
             <p data-cta-item className="folio text-linen-100/50">
-              <span className="text-brand-300">Nr. 05</span> — Der erste
+              <span className="text-brand-300">Nr. {nr}</span> — Der erste
               Schritt
             </p>
             <h2

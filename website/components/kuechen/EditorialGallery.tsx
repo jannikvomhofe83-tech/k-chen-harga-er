@@ -100,7 +100,7 @@ export default function EditorialGallery() {
             </h2>
           </div>
           <p className="folio mb-2 text-carbon-400">
-            Abb. 01 — {String(kitchens.length).padStart(2, "0")}
+            Abb. 02 — {String(kitchens.length + 1).padStart(2, "0")}
           </p>
         </div>
 
@@ -130,7 +130,7 @@ export default function EditorialGallery() {
                 <figcaption className="mt-4 flex items-baseline justify-between gap-4 border-t rule-carbon pt-3 text-xs">
                   <span>
                     <span className="folio text-brand-700">
-                      Abb. {String(i + 1).padStart(2, "0")}
+                      Abb. {String(i + 2).padStart(2, "0")}
                     </span>
                     <span className="text-carbon-600"> — {k.caption}</span>
                   </span>

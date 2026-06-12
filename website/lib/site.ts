@@ -127,15 +127,18 @@ export const services = [
 
 export const testimonials = [
   {
-    name: "Oliver M.",
-    text: "Von der Planung bis zur Montage alles aus einer Hand und absolut professionell. Man merkt in jedem Detail, dass hier mit Erfahrung und Leidenschaft gearbeitet wird.",
-  },
-  {
-    name: "T. K.",
-    text: "Persönliche Beratung, wie man sie sich wünscht: ehrlich, geduldig und mit einem sehr guten Gespür dafür, was zu uns passt. Das Ergebnis übertrifft unsere Erwartungen.",
+    name: "T K",
+    ago: "vor 4 Jahren",
+    text: "Nach intensiver, fachkundiger und vor allem freundlicher Beratung entstand eine Küchenplanung genauso wie wir sie uns vorgestellt haben.",
   },
   {
     name: "Claudia Schmidt",
-    text: "Termingerecht, sauber und mit großer Sorgfalt eingebaut. Das Preis-Leistungs-Verhältnis ist hervorragend — wir würden jederzeit wieder bei Hargaßer kaufen.",
+    ago: "vor 4 Jahren",
+    text: "Wir haben unsere perfekte Traumküche erhalten. Super Beratung und klasse Vorschläge zur Umsetzung. Auf alle Wünsche wurde eingegangen.",
+  },
+  {
+    name: "Oliver M.",
+    ago: "vor 4 Jahren",
+    text: "Wollte mich nochmal ganz herzlich für die tolle Küche bedanken. Von der perfekten Planung bis zum Einbau alles top — sehr empfehlenswert!",
   },
 ];

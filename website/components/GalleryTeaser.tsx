@@ -11,10 +11,10 @@ const picks = [
 
 export default function GalleryTeaser() {
   return (
-    <section className="bg-ink">
+    <section className="bg-paper text-ink">
       <div className="mx-auto max-w-7xl px-5 pb-24 md:px-8 md:pb-36">
         <Reveal>
-          <p className="label text-brass">Einblicke</p>
+          <p className="label text-brand-red">Einblicke</p>
           <h2 className="mt-5 max-w-2xl font-serif text-4xl leading-[1.1] md:text-5xl">
             Jede Küche erzählt von den Menschen, die in ihr leben.
           </h2>
@@ -28,7 +28,7 @@ export default function GalleryTeaser() {
               className="aspect-[16/9] w-full"
               sizes="(min-width: 1280px) 1216px, 100vw"
             />
-            <div className="mt-3 flex items-baseline justify-between text-xs text-paper/45">
+            <div className="mt-3 flex items-baseline justify-between text-xs text-ink/45">
               <span>{picks[0].caption}</span>
               <span>{picks[0].material}</span>
             </div>
@@ -44,7 +44,7 @@ export default function GalleryTeaser() {
                   sizes="(min-width: 768px) 50vw, 100vw"
                   strength={6}
                 />
-                <div className="mt-3 flex items-baseline justify-between text-xs text-paper/45">
+                <div className="mt-3 flex items-baseline justify-between text-xs text-ink/45">
                   <span>{k.caption}</span>
                   <span>{k.material}</span>
                 </div>
@@ -57,10 +57,10 @@ export default function GalleryTeaser() {
           <div className="mt-14">
             <Link
               href="/kuechen"
-              className="label inline-flex items-center gap-3 text-paper transition-colors hover:text-brass"
+              className="label inline-flex items-center gap-3 text-ink transition-colors hover:text-brand-red"
             >
               Alle Küchen entdecken
-              <span aria-hidden className="text-brass">→</span>
+              <span aria-hidden className="text-brand-red">→</span>
             </Link>
           </div>
         </Reveal>

@@ -5,8 +5,6 @@ import ServicesSection from "@/components/ServicesSection";
 import WhySection from "@/components/WhySection";
 import GalleryTeaser from "@/components/GalleryTeaser";
 import Testimonials from "@/components/Testimonials";
-import CtaSection from "@/components/CtaSection";
-
 export default function Home() {
   return (
     <>
@@ -17,7 +15,6 @@ export default function Home() {
       <WhySection />
       <GalleryTeaser />
       <Testimonials />
-      <CtaSection />
     </>
   );
 }

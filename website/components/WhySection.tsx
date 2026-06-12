@@ -3,11 +3,11 @@ import Reveal from "@/components/Reveal";
 
 export default function WhySection() {
   return (
-    <section className="bg-ink">
+    <section className="bg-paper text-ink">
       <div className="mx-auto grid max-w-7xl gap-14 px-5 py-24 md:grid-cols-2 md:items-center md:gap-20 md:px-8 md:py-36">
         <div>
           <Reveal>
-            <p className="label text-brass">Warum Hargaßer</p>
+            <p className="label text-brand-red">Warum Hargaßer</p>
             <h2 className="mt-5 font-serif text-4xl leading-[1.12] md:text-5xl">
               Ein kleines Studio.
               <br />
@@ -15,7 +15,7 @@ export default function WhySection() {
             </h2>
           </Reveal>
           <Reveal delay={0.12}>
-            <div className="mt-8 space-y-6 text-[0.95rem] leading-relaxed text-paper/70">
+            <div className="mt-8 space-y-6 text-[0.95rem] leading-relaxed text-ink/70">
               <p>
                 Bei uns sitzen Sie nicht einem Verkäufer gegenüber, sondern dem
                 Menschen, der Ihre Küche später wirklich verantwortet. Wir
@@ -47,7 +47,7 @@ export default function WhySection() {
               className="object-cover"
             />
           </div>
-          <p className="mt-4 text-xs text-paper/45">
+          <p className="mt-4 text-xs text-ink/45">
             Details, die man jeden Tag sieht — und spürt.
           </p>
         </Reveal>

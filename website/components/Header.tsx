@@ -19,6 +19,13 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  /* Menü bei Seitenwechsel schließen (State-Anpassung während des Renderns). */
+  const [prevPath, setPrevPath] = useState(pathname);
+  if (prevPath !== pathname) {
+    setPrevPath(pathname);
+    setOpen(false);
+  }
+
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
     onScroll();
@@ -26,17 +33,14 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
+  const barClass =
+    scrolled || open
+      ? "bg-brand-red/95 backdrop-blur-md border-b border-white/10"
+      : "bg-transparent border-b border-transparent";
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
-        scrolled || open
-          ? "bg-brand-red/95 backdrop-blur-md border-b border-white/10"
-          : "bg-transparent border-b border-transparent"
-      }`}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${barClass}`}
     >
       <div className="flex h-16 md:h-20 w-full items-center justify-between pl-3 pr-5 md:pl-5 md:pr-8">
         <Link href="/" aria-label="Küchen Hargaßer — Startseite" className="group flex items-center gap-3">
@@ -52,14 +56,14 @@ export default function Header() {
             <span className="font-serif text-base md:text-lg tracking-wide">
               Küchen Hargaßer
             </span>
-            <span className="label mt-1 text-[0.55rem] text-paper/70 group-hover:text-paper transition-colors">
+            <span className="label mt-1 text-[0.55rem] text-paper/70 transition-colors group-hover:text-paper">
               Taufkirchen (Vils) · München
             </span>
           </span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          {nav.slice(1).map((item) => (
+          {nav.map((item) => (
             <Link
               key={item.href}
               href={item.href}
@@ -72,7 +76,7 @@ export default function Header() {
           ))}
           <Link
             href="/kontakt"
-            className="ml-2 border border-brand-red px-5 py-2.5 text-xs label text-paper bg-brand-red/20 hover:bg-brand-red hover:text-paper transition-colors duration-300"
+            className="ml-2 px-5 py-2.5 text-xs label border border-brand-red text-paper bg-brand-red/20 transition-colors duration-300 hover:bg-brand-red hover:text-paper"
           >
             Beratungstermin
           </Link>
@@ -111,7 +115,7 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`py-3 font-serif text-2xl ${
+                  className={`py-3 text-2xl font-serif ${
                     pathname === item.href ? "text-brass" : "text-paper"
                   }`}
                 >

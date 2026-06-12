@@ -18,6 +18,9 @@ export default function FloatingCta() {
 
   if (pathname === "/kontakt") return null;
 
+  /* Editorial-Theme (helle Seiten): Markenrot statt Messing. */
+  const editorial = pathname === "/kuechen";
+
   return (
     <AnimatePresence>
       {visible && (
@@ -30,7 +33,11 @@ export default function FloatingCta() {
         >
           <Link
             href="/kontakt"
-            className="rounded-full bg-brass px-7 py-3.5 text-sm font-semibold text-ink shadow-xl shadow-black/40"
+            className={`rounded-full px-7 py-3.5 text-sm font-semibold shadow-xl ${
+              editorial
+                ? "bg-brand-700 text-linen-50 shadow-carbon-900/30"
+                : "bg-brass text-ink shadow-black/40"
+            }`}
           >
             Beratungstermin vereinbaren
           </Link>

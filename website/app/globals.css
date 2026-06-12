@@ -11,6 +11,32 @@
   --brand-red: #800c0f;
   --line-dark: rgba(245, 241, 234, 0.12);
   --line-light: rgba(21, 19, 15, 0.12);
+
+  /* ── Editorial-Theme (Küchen & Leistungen) ───────────────────────
+     60% Leinenweiß · 30% Carbon-Schwarzbraun · 10% Logo-Rot #810c0f */
+  --linen-50: #fdfcfa;
+  --linen-100: #faf8f3;
+  --linen-200: #f3efe6;
+  --linen-300: #e9e3d5;
+  --linen-400: #d6cdb9;
+
+  --carbon-400: #8d857a;
+  --carbon-500: #6f685d;
+  --carbon-600: #4f4940;
+  --carbon-700: #36312a;
+  --carbon-800: #241f1a;
+  --carbon-900: #1b1814;
+
+  --brand-50: #faf0ee;
+  --brand-100: #f3dcd9;
+  --brand-200: #e3aaa5;
+  --brand-300: #cf7670;
+  --brand-400: #b53f3d;
+  --brand-500: #9c1d1e;
+  --brand-600: #8d1315;
+  --brand-700: #810c0f; /* Logo-Rot */
+  --brand-800: #65080b;
+  --brand-900: #460506;
 }
 
 @theme inline {
@@ -24,6 +50,31 @@
   --color-brand-red: var(--brand-red);
   --font-serif: var(--font-fraunces);
   --font-sans: var(--font-manrope);
+
+  /* Editorial-Theme */
+  --color-linen-50: var(--linen-50);
+  --color-linen-100: var(--linen-100);
+  --color-linen-200: var(--linen-200);
+  --color-linen-300: var(--linen-300);
+  --color-linen-400: var(--linen-400);
+  --color-carbon-400: var(--carbon-400);
+  --color-carbon-500: var(--carbon-500);
+  --color-carbon-600: var(--carbon-600);
+  --color-carbon-700: var(--carbon-700);
+  --color-carbon-800: var(--carbon-800);
+  --color-carbon-900: var(--carbon-900);
+  --color-brand-50: var(--brand-50);
+  --color-brand-100: var(--brand-100);
+  --color-brand-200: var(--brand-200);
+  --color-brand-300: var(--brand-300);
+  --color-brand-400: var(--brand-400);
+  --color-brand-500: var(--brand-500);
+  --color-brand-600: var(--brand-600);
+  --color-brand-700: var(--brand-700);
+  --color-brand-800: var(--brand-800);
+  --color-brand-900: var(--brand-900);
+  --font-display: var(--font-newsreader);
+  --font-body: var(--font-hanken);
 }
 
 html {
@@ -113,6 +164,45 @@ html.lenis body {
   text-transform: uppercase;
   font-size: 0.6875rem;
   font-weight: 600;
+}
+
+/* ── Editorial-Theme (Küchen & Leistungen) ─────────────────────── */
+
+.theme-editorial {
+  font-family: var(--font-hanken), system-ui, sans-serif;
+  font-feature-settings: "ss01" on;
+}
+
+.theme-editorial ::selection {
+  background: var(--brand-700);
+  color: var(--linen-50);
+}
+
+.font-display {
+  font-family: var(--font-newsreader), Georgia, serif;
+  font-optical-sizing: auto;
+  letter-spacing: -0.015em;
+}
+
+/* Magazin-Folio: kleine Index-Zeile wie in einem Druckwerk */
+.folio {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* Hairlines im Editorial-Theme */
+.rule-carbon {
+  border-color: rgba(27, 24, 20, 0.14);
+}
+.rule-linen {
+  border-color: rgba(250, 248, 243, 0.16);
+}
+
+/* Zeilen-Maske für SplitText-Reveals */
+.split-mask .line {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {

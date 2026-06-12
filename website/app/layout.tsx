@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Fraunces, Manrope } from "next/font/google";
+import { Fraunces, Manrope, Newsreader, Hanken_Grotesk } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/SmoothScroll";
 import Header from "@/components/Header";
@@ -18,6 +18,22 @@ const manrope = Manrope({
   variable: "--font-manrope",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+/* Editorial-Theme (Küchen & Leistungen): klassische Serif mit optischer
+   Größenachse + warme Grotesk. Wird seitenweise eingesetzt. */
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
+  subsets: ["latin"],
+  weight: "variable",
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+});
+
+const hanken = Hanken_Grotesk({
+  variable: "--font-hanken",
+  subsets: ["latin"],
+  weight: "variable",
 });
 
 export const metadata: Metadata = {
@@ -58,7 +74,7 @@ export default function RootLayout({
   return (
     <html
       lang="de"
-      className={`${fraunces.variable} ${manrope.variable} h-full antialiased`}
+      className={`${fraunces.variable} ${manrope.variable} ${newsreader.variable} ${hanken.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
